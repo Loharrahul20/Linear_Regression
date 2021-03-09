@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CAR PRICE PREDICTION</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("https://foto.wartaekonomi.co.id/files/arsip_foto_2019_06_04/kimia_110856_big.jpg");
+            /*background-image: url("https://wallpapercave.com/wp/wp2789129.jpg");*/
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            padding-top: 30px;
+            padding-right: 500px;
+            font-family: cursive;
+        }
+
+        .glow {
+            font-size: 40px;
+            color: whitesmoke;
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+
+
+        .w3-button {
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+<div style="text-align: center;">
+    <form action="{{ url_for('predict')}}" method="post">
+        <h3 class="glow">Profit Prediction</h3>
+        <h2 style="color:black"><label>Please enter RND cost (below lakh):</label><br>
+            <input id="First" name="RND" required="required" type="number"><br>
+
+            <label>Please enter MKT cost (below lakh) :</label><br>
+            <input id="second" name="MKT" required="required" type="number"><br>
+
+            <br>
+            <button class="w3-button w3-red" id="sub" type="submit ">Calculate the PROFIT</button>
+
+        </h2>
+    </form>
+
+    <h3 style="padding-top: 50px">{{prediction_text}} </h3>
+</div>
+</body>
+</html>
